@@ -29,11 +29,12 @@ angular.module('BeMEAN', ['ngAnimate', 'ngRoute'])
 	})
 ;
 
-function UserService($http){
-	if(window.location.href.indexOf("localhost") > -1) {		
-		var base_url = 'http://localhost/storage/api/dados.php';
+function UserService($http){	
+	
+	if(window.location.href.indexOf("localhost") > -1) {				
+		var base_url = 'http://localhost/be_mean/api/user';
 	} else {		
-		var base_url = 'http://192.168.0.210/storage/api/dados.php';
+		var base_url = 'http://192.168.0.210/be_mean/api/user';
 	}
 	
 	this.list = function(){
