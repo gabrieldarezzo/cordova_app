@@ -1,7 +1,7 @@
 AngularJs v1.5.6
 
 
-Exemplo de persistencia de dados (Online/Offline)  
+Exemplo de persistencia de dados (Online/Offline)  + PushNotification no Cordova
 
 
 
@@ -21,3 +21,13 @@ Descomenta a linha do index.html
 
 
 Pronto sucesso.  
+
+
+
+-- Recado:
+cordova plugin add phonegap-plugin-push
+
+
+
+-- Liberar para a prod:
+cordova build --release android --stacktrace
