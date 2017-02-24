@@ -38,9 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
 
 
-/*
+
 define('API_KEY_MESSAGE', 'YOUR_KEY_HERE'); 
-*/
+
 
 require_once 'class/lib.php';
 
@@ -232,10 +232,10 @@ $app->get('/mockMensagem', function () {
 	$devices = array();
 	foreach($usuarios as $usuario){
 		if($usuario->device_register != ''){
-			$devices[] = $usuario->device_register
-		}
-		
+			$devices[] = $usuario->device_register;
+		}		
 	}
+	
 	
 	//print_r($usuario);
 	
@@ -244,9 +244,18 @@ $app->get('/mockMensagem', function () {
 	
 	
 	$pushMensagem = new PushMensagem(API_KEY_MESSAGE);
+	/*
 	$response = $pushMensagem
  		->criarMensagem($assunto, $corpo)
  		->setDisparoByDevices($devices)
+ 		->disparar()
+ 	;
+	*/
+	
+	
+	$response = $pushMensagem
+ 		->criarMensagem($assunto, $corpo)
+ 		->setDisparoByIds(array(6))
  		->disparar()
  	;
 	

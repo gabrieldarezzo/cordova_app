@@ -57,21 +57,25 @@ class PushMensagem extends GCMPushMessage{
 			die('ids obrigatório');
 		}
 
-		if($this->cod_alerta == ''){
+		if($this->cod_mensagem == ''){
 			die('Test');
 		}		
 
 		$db = getConnection();
+		
+		$ids = implode(',', $ids);
 		
 		//Faz de conta que você tem uma tabela de Usuarios, e nela que você alimenta o device_register
 		$sql = "select device_register from usuario WHERE usuario.id IN ({$ids})";
 
 		$stmt = $db->prepare($sql);			
 		
+		/*
 		// bindvalue is 1-indexed, so $k+1
 		foreach ($ids as $k => $id){
 			$stmt->bindValue(($k+1), $id);
 		}
+		*/
 		
 		$stmt->execute();
 		$usuarios = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -115,9 +119,11 @@ class PushMensagem extends GCMPushMessage{
 		if(count($this->devices) == 0){
 			return array('success' => true, 'msg' => 'Nenhum Rm encontrado');
 		}
+		
+		
 
 		parent::__construct($this->apiKey);
-		$this->setDevices($devices);
+		$this->setDevices($this->devices);
 
 
 		$response = $this->send($corpo, array(
