@@ -38,7 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
 
 
+/*
 define('API_KEY_MESSAGE', 'YOUR_KEY_HERE'); 
+*/
 
 require_once 'class/lib.php';
 
@@ -64,7 +66,7 @@ function getConnection() {
 	    
 		if(strpos($_SERVER['SERVER_NAME'], 'localhost') !== false || $_SERVER['SERVER_NAME']=='127.0.0.1' || $_SERVER['SERVER_NAME']=='192.168.0.210'){
 			
-			$cli = 'be_mean';
+			$cli = 'imasters';
 			
 			$db = new PDO("mysql:host=localhost;dbname=" . $cli , 'root', '');  
 			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);		
@@ -87,7 +89,7 @@ function getConnection() {
 
 
 
-$app->post('/register_device/', function () { 
+$app->post('/register_device/', function () {
 
 	$app = \Slim\Slim::getInstance();
 	$request = $app->request();
@@ -121,6 +123,136 @@ $app->post('/register_device/', function () {
 });
 
 
+
+$app->get('/showMensagens/', function () {
+	
+	$headers = apache_request_headers();
+	if(!isset($headers) || !isset($headers['Authorization']) || $headers['Authorization'] == ''){
+		http_response_code(401);		
+		die();
+	}
+	
+	$token = $headers['Authorization'];
+	
+	
+	$db = getConnection();
+	
+	$sql = "
+	SELECT 
+		* 
+	FROM 
+		mensagem 
+	INNER JOIN usuario ON (
+		usuario.id = mensagem.usuario_id
+	)
+	where 
+		token = :token
+	";
+	
+	//print $sql;
+	
+	$stmt = $db->prepare($sql);
+	
+	$stmt->bindParam(':token', $token, PDO::PARAM_STR);
+	
+	$stmt->execute();
+	$mensagens = $stmt->fetchAll(PDO::FETCH_OBJ);
+	
+	print json_encode($mensagens);
+});
+
+$app->post('/criarUsuario', function () { 
+	$app = \Slim\Slim::getInstance();
+	$request = $app->request();
+	$usuario = json_decode($request->getBody());
+	
+	//print_r($usuario);die();
+	$db = getConnection();
+	
+	
+	
+	$sql = "INSERT INTO usuario (nome, email, senha, token, device_register) VALUES (:nome, :email, :senha, :token, :device_register)";
+	
+	$token = bin2hex(openssl_random_pseudo_bytes(16));
+	
+	$stmt = $db->prepare($sql);                                  
+	$stmt->bindParam(':nome', $usuario->nome, PDO::PARAM_STR);
+	$stmt->bindParam(':email', $usuario->email, PDO::PARAM_STR);
+	$stmt->bindParam(':senha', $usuario->senha, PDO::PARAM_STR);
+	$stmt->bindParam(':token', $token, PDO::PARAM_STR);
+	$stmt->bindParam(':device_register', $usuario->device_register, PDO::PARAM_STR);
+
+	$stmt->execute();
+	
+	$json = array(
+		 'status' => true
+		,'id' => $db->lastInsertId()
+		,'token' => $token
+	);
+	print json_encode($json);	
+});
+
+
+$app->post('/criarMensagem', function () { 
+	$app = \Slim\Slim::getInstance();
+	$request = $app->request();
+	$usuario = json_decode($request->getBody());
+	
+	//print_r($usuario);die();
+	$db = getConnection();
+	
+	$sql = "INSERT INTO mensagem (assunto, corpo, usuario_id) VALUES (:assunto, :corpo, :usuario_id)";
+	
+	
+	$stmt = $db->prepare($sql);                                  
+	$stmt->bindParam(':assunto', $usuario->assunto, PDO::PARAM_STR);
+	$stmt->bindParam(':corpo', $usuario->corpo, PDO::PARAM_STR);
+	$stmt->bindParam(':usuario_id', $usuario->usuario_id, PDO::PARAM_STR);
+	
+	$stmt->execute();
+	
+	$json = array(
+		 'status' => true
+		,'cod_mensagem' => $db->lastInsertId()
+	);
+	print json_encode($json);	
+});
+
+
+$app->get('/mockMensagem', function () { 
+	
+	$db = getConnection();
+	
+	// $stmt = $db->prepare("SELECT device_register FROM usuario");
+	$stmt = $db->prepare("SELECT * FROM usuario");
+	
+	$stmt->execute();
+	$usuarios = $stmt->fetchAll(PDO::FETCH_OBJ);
+	
+	$devices = array();
+	foreach($usuarios as $usuario){
+		if($usuario->device_register != ''){
+			$devices[] = $usuario->device_register
+		}
+		
+	}
+	
+	//print_r($usuario);
+	
+	$assunto 	= 'Boa tarde';
+	$corpo 		= '<strong>pra Vc tmb!</strong>';
+	
+	
+	$pushMensagem = new PushMensagem(API_KEY_MESSAGE);
+	$response = $pushMensagem
+ 		->criarMensagem($assunto, $corpo)
+ 		->setDisparoByDevices($devices)
+ 		->disparar()
+ 	;
+	
+	
+
+});
 
 
 $app->get('/', function () { 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt_br" data-ng-app="BeMEAN">
+<html lang="pt_br" data-ng-app="imasters">
 <head>
 	
 	<meta charset="utf-8">
@@ -20,34 +20,21 @@
 	
 </head>
 <body>	
-	<nav class="light-blue lighten-1" role="navigation">
+	<nav class="light-blue lighten-1" role="nalocavigation">
 	   <div class="nav-wrapper container">
-	      <a id="logo-container" href="#" class="brand-logo">Logo</a>
-	      <ul class="right hide-on-med-and-down">
-	         <li><a href="#">Navbar Link</a></li>
-	      </ul>
-	      <ul id="nav-mobile" class="side-nav">
-	         <li><a href="#">Navbar Link</a></li>
-	      </ul>
-	      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+	      <a onclick="return false;" id="logo-container" href="#" class="brand-logo">Logo</a>
 	   </div>
 	</nav>
 	
 	<div class="container">
-	   <div class="section">	      
-	      <div class="row">		  
-			<div data-ng-view></div>
-	      </div>
-	   </div>	 
+		<div class="main-system" id="mvc" ng-view></div>
 	</div>
-	<footer class="page-footer orange">
-	 
-	</footer>
+	
 
 
 
 	
-	<!-- Decomenta isso no cordova build
+	<!-- Descomentar isso antes do cordova build
 	<script type="text/javascript" src="cordova.js"></script>	
 	<script type="text/javascript" src="js/index.js"></script>
 	-->

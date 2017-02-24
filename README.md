@@ -8,7 +8,7 @@ Exemplo de persistencia de dados (Online/Offline)  + PushNotification no Cordova
 npm install -g cordova  
 
 
-create MyApp  
+cordova create MyApp  
 cd MyApp  
 cordova platform add android  
 cordova run android --device  
@@ -24,7 +24,7 @@ Pronto sucesso.
 
 
 
--- Recado:
+-- PushNotification:
 cordova plugin add phonegap-plugin-push
 
 

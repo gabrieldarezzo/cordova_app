@@ -86,6 +86,12 @@ class PushMensagem extends GCMPushMessage{
 
 		return $this;
 	}
+	
+	public function setDisparoByDevices($devices){	
+		$this->devices = $devices;
+		
+		return $this;	
+	}
 
 	public function disparar(){
 
@@ -122,5 +128,10 @@ class PushMensagem extends GCMPushMessage{
 		return json_decode($response);
 
 	}
+	
+	public function mockDisparar(){
+		
+	}
+	
 	
 }

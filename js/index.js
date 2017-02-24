@@ -10,7 +10,10 @@ function registerDeviceServer(registrationId = null, id_usuario = null){
 	var params = 'cod_responsavel=' + cod_responsavel + '&registrationId=' + registrationId + '&cli=' + cli;
 	
 	//Lugar onde salvar no WebService...
-	ajax.open("POST", 'http://192.168.0.210/inschool/api/index.php/register_device/', true);
+	ajax.open("POST", 'http://192.168.0.210/cordova_app/api/index.php/register_device/', true);
+	
+	
+	
 	
 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");			
 	ajax.send(params);
@@ -22,9 +25,12 @@ function registerDeviceServer(registrationId = null, id_usuario = null){
 }
 
 
-$(document).ready(function() {
-    document.addEventListener("deviceready", onDeviceReady, false);
+document.addEventListener('DOMContentLoaded', function() {
+	
+	document.addEventListener("deviceready", onDeviceReady, false);
+
 });
+
     
 //Mais eventos em: http://cordova.apache.org/docs/en/6.x/cordova/events/events.html
 function onDeviceReady() {    
@@ -37,8 +43,8 @@ function onDeviceReady() {
 	app.push = PushNotification.init({
 		 "android": {
 			  "senderID": "285166905606"
-			 ,"icon" : 	'android_icon'
-			 ,"iconColor": "#ff6600"			 
+			 //,"icon" : 	'android_icon'
+			 //,"iconColor": "#ff6600"			 
 		 },
 		 "ios": {
 		   "sound": true,
@@ -74,14 +80,15 @@ function onDeviceReady() {
 	//End - Notification
 }
 
-function onResume(){    
-	/*
+function onResume(){	
     //Se já estiver logado, força o reload dos recados
-    if(localStorage.getItem('modulos') != null && localStorage.getItem('modulos') != ''){        
-        angular.element($('#mvc')).scope().Aluno.controllerAlunoResume();
+    if(localStorage.getItem('tokenUsuario') != null && localStorage.getItem('tokenUsuario') != ''){        
+		//document.getElementById("id_element")
+        angular.element($('#mvc')).scope().Usuario.controllerResume();
     }
-	*/
 }
+
+
 
 function onBackKeyDown() {
     //angular.element($('#mvc')).scope().Aluno.closeModal();    

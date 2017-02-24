@@ -1,3 +1,0 @@
-<?php
-die();
-//Not to-Do Here...

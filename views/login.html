@@ -1,0 +1,25 @@
+<main>
+	<!--Main layout-->
+	<div class="container">
+		<h2 class="h2">Login:</h2>
+		<form ng-submit="Login.doLogin(Login.form)" novalidate>
+		
+			<div>
+				<input type="text" ng-model="Login.form.email" placeholder="E-mail" />
+			</div>
+			
+			<div style="margin-bottom: 20px;">
+				<input type="password" ng-model="Login.form.senha" placeholder="Senha"/>		
+			</div>
+			
+			<button type="submit" name="action" class="btn btn-large green waves-effect waves-light col s12">Entrar</button>
+		</form>
+		
+		<hr />
+		
+		<a href="#criar">
+			<button type="submit" name="action" class="btn btn-large blue waves-effect waves-light col s12">Criar Login</button>
+		</a>
+
+	</div> <!-- ./container-->
+</main>
