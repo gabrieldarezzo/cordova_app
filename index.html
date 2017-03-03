@@ -32,12 +32,25 @@
 	
 
 
+	<script type="text/javascript">
+		/*
+		if(window.location.href.indexOf("localhost") > -1) {				
+			var base_url = 'http://localhost/cordova_app/api/index.php/';
+		} else if(window.location.hostname.indexOf('192.168.0.210') !== -1) {
+			var base_url = 'http://192.168.0.210/cordova_app/api/index.php/';
+		} else {
+			var base_url = 'http://192.168.0.210/cordova_app/api/index.php/';
+		}
+		*/
+		
+		var base_url = 'http://192.168.0.210/cordova_app/api/index.php/';
+	</script>
 
 	
-	<!-- Descomentar isso antes do cordova build
+	<!-- Descomentar isso antes do cordova build-->
 	<script type="text/javascript" src="cordova.js"></script>	
 	<script type="text/javascript" src="js/index.js"></script>
-	-->
+	
 	
 	<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
 	<script type="text/javascript" src="node_modules/angular-route/angular-route.min.js"></script>

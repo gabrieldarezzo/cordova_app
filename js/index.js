@@ -1,30 +1,3 @@
-function registerDeviceServer(registrationId = null, id_usuario = null){
-	console.log('registrationId -> ', registrationId);
-	
-	if(registrationId == null){
-		return false;
-	}
-	
-	
-	var ajax = new XMLHttpRequest();
-	var params = 'cod_responsavel=' + cod_responsavel + '&registrationId=' + registrationId + '&cli=' + cli;
-	
-	//Lugar onde salvar no WebService...
-	ajax.open("POST", 'http://192.168.0.210/cordova_app/api/index.php/register_device/', true);
-	
-	
-	
-	
-	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");			
-	ajax.send(params);
-	ajax.onreadystatechange = function() {
-		if(ajax.readyState == 4 && ajax.status == 200) {
-			console.log(ajax.responseText);			
-		}
-	}
-}
-
-
 document.addEventListener('DOMContentLoaded', function() {
 	
 	document.addEventListener("deviceready", onDeviceReady, false);

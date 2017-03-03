@@ -1,12 +1,3 @@
-if(window.location.href.indexOf("localhost") > -1) {				
-	var base_url = 'http://localhost/cordova_app/api/index.php/';
-} else if(window.location.hostname.indexOf('192.168.0.210') !== -1) {
-	var base_url = 'http://192.168.0.210/cordova_app/api/index.php/';
-} else {
-	var base_url = 'http://192.168.0.210/cordova_app/api/index.php/';
-}
-
-
 function capitalize(input){
 	return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
 }
@@ -139,8 +130,19 @@ function LoginController(LoginService, $location){
 			//Salva dados no Storage
 			localStorage.setItem('tokenUsuario', json.token);
 			
+			var registerParams = {
+				 registrationId: localStorage.getItem('registrationId')
+				,usuario_id: json.id
+			};
 			
+			LoginService.registerDeviceServer(registerParams)
+				.then(function successCallback(response){
 			
+				}
+				,function errorCallback(err) {
+					console.log(err);
+				})
+			;
 			
 			
 			$location.path('/usuario');
@@ -156,9 +158,7 @@ function LoginController(LoginService, $location){
 			}
 			*/
 		})
-		
-			
-	}
+	};
 }
 
 function LogoutController($location){
@@ -243,4 +243,23 @@ function LoginService($http){
 		};
 		return $http(request);
 	};
+	
+	this.registerDeviceServer = function(data){
+		
+		const url 		= base_url + 'register_device';
+		const method 	= 'POST';
+		const request 	= {
+			 url	: url
+			,method : method
+			,data	: data
+		};
+		return $http(request);
+	};
+	
+	
+	
+	
+	
+	
+	
 }

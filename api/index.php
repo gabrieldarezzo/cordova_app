@@ -41,7 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
 define('API_KEY_MESSAGE', 'YOUR_KEY_HERE'); 
 
-
 require_once 'class/lib.php';
 
 require 'vendor/autoload.php';
@@ -75,8 +74,7 @@ function getConnection() {
 			return $db;
 		} else {
 			//PRODUÇÃO Conf.
-
-			
+			die('Not Set');
 			return $db;
 		}
 	} catch (PDOException $e) {
@@ -98,19 +96,34 @@ $app->post('/register_device/', function () {
 	if($user_device == null){
 		$user_device = new stdClass;		
 		$user_device->registrationId	= $_POST['registrationId']; 
-		$user_device->cod_responsavel	= $_POST['cod_responsavel']; 
+		$user_device->usuario_id		= $_POST['usuario_id']; 
 	}
 		
 	$db = getConnection();
 
 	$registrationId = $user_device->registrationId;	
-	$id 			= $user_device->cod_responsavel;
+	$id 			= $user_device->usuario_id;
 	
-
+	//die('a');
+	
+	//Should use ,token CHAR(32) + localStorage.getItem('tokenUsuario')
+	
 	if(!isset($id) || $id == ''){
-		die('id not defined');
+		//die('id not defined');
+		print json_encode(array('success' => false, 'message' => 'id not defined'));
+		die();
 	}
 	
+	
+	$sql = "SELECT * FROM usuario WHERE id = :id";
+	$stmt = $db->prepare($sql);
+	$stmt->bindParam(':id', $id, PDO::PARAM_STR);       
+	$stmt->execute();
+	$usuario = $stmt->fetchAll(PDO::FETCH_OBJ);
+	if(!$usuario){
+		print json_encode(array('success' => false, 'message' => 'User not found'));		
+		die();
+	}
 	
 	$sql = "UPDATE usuario SET device_register = :device_register WHERE id = :id";
 
@@ -118,7 +131,13 @@ $app->post('/register_device/', function () {
 
 	$stmt->bindParam(':id', $id, PDO::PARAM_STR);       
 	$stmt->bindParam(':device_register', $registrationId, PDO::PARAM_STR);       
-	$stmt->execute();
+	$result = $stmt->execute();
+	
+	if($result){
+		print json_encode(array('success' => true, 'message' => 'registrationId -> ' . $registrationId));
+	} else{
+		print json_encode(array('success' => false, 'message' => $stmt->errorCode()));		
+	}
 
 });
 
@@ -219,12 +238,17 @@ $app->post('/criarMensagem', function () {
 });
 
 
-$app->get('/mockMensagem', function () { 
+$app->get('/mockMensagem(/:id)', function ($id = 14) { 
+
 	
 	$db = getConnection();
 	
-	// $stmt = $db->prepare("SELECT device_register FROM usuario");
-	$stmt = $db->prepare("SELECT * FROM usuario");
+	/*
+	
+	$sql = "SELECT * FROM usuario WHERE id = :id";
+	$stmt = $db->prepare($sql);
+	
+	$stmt->bindParam(':id', $id, PDO::PARAM_STR);       
 	
 	$stmt->execute();
 	$usuarios = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -235,9 +259,10 @@ $app->get('/mockMensagem', function () {
 			$devices[] = $usuario->device_register;
 		}		
 	}
+	*/
 	
 	
-	//print_r($usuario);
+	//print_r($devices);die();
 	
 	$assunto 	= 'Boa tarde';
 	$corpo 		= '<strong>pra Vc tmb!</strong>';
@@ -255,7 +280,7 @@ $app->get('/mockMensagem', function () {
 	
 	$response = $pushMensagem
  		->criarMensagem($assunto, $corpo)
- 		->setDisparoByIds(array(6))
+ 		->setDisparoByIds(array($id))
  		->disparar()
  	;
 	

@@ -1,21 +1,22 @@
-CREATE TABLE imasters;
+DROP DATABASE imasters;
+CREATE DATABASE imasters;
 
-USER imasters;
+USE imasters;
 
 CREATE TABLE mensagem(
-	 cod_mensagem int(8) primary key auto_increment
-	,assunto varchar(200)
+	 cod_mensagem INT(8) PRIMARY KEY AUTO_INCREMENT
+	,assunto VARCHAR(200)
 	,corpo TEXT 
-	,usuario_id int(8)
+	,usuario_id INT(8)
 );
 
 CREATE TABLE usuario(
-	 id int(8) primary key auto_increment	 
-	,nome varchar(50) not null
-	,email varchar(150)	not null
-	,senha varchar(150)	not null
-	,token char(32)
-	,device_register varchar(300)	
+	 id INT(8) PRIMARY KEY AUTO_INCREMENT	 
+	,nome VARCHAR(50) NOT NULL
+	,email VARCHAR(150)	NOT NULL
+	,senha VARCHAR(150)	NOT NULL
+	,token CHAR(32)
+	,device_register VARCHAR(300)	
 );
 
 
