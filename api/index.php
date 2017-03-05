@@ -63,7 +63,7 @@ function getConnection() {
 
 	try {
 	    
-		if(strpos($_SERVER['SERVER_NAME'], 'localhost') !== false || $_SERVER['SERVER_NAME']=='127.0.0.1' || $_SERVER['SERVER_NAME']=='192.168.0.210'){
+		if(strpos($_SERVER['SERVER_NAME'], 'localhost') !== false || $_SERVER['SERVER_NAME']=='127.0.0.1' || $_SERVER['SERVER_NAME']=='192.168.0.210' || $_SERVER['SERVER_NAME'] == '192.168.0.9'){
 			
 			$cli = 'imasters';
 			
