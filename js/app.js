@@ -83,6 +83,11 @@ angular.module('Login', [])
 			 template: ''
 			,controller: 'LogoutController'			
 		})
+		.when('/lista/', {			 
+			 templateUrl: 'views/listagem.html'
+			,controller: 'ListagemController'			
+			,controllerAs: 'Listagem'
+		})
 		;
 		//$httpProvider.interceptors.push('authInterceptor');
 
