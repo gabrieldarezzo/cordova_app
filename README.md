@@ -31,3 +31,7 @@ cordova plugin add phonegap-plugin-push
 
 -- Liberar para a prod:
 cordova build --release android --stacktrace
+
+
+Tutorial muito bom:
+http://macdonst.github.io/push-workshop/
