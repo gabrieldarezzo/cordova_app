@@ -1,3 +1,6 @@
+# WebApp Angular with PushNotification  
+
+
 AngularJs v1.5.6
 
 
@@ -35,3 +38,19 @@ cordova build --release android --stacktrace
 
 Tutorial muito bom:
 http://macdonst.github.io/push-workshop/
+
+
+
+----
+Acesse:
+https://console.firebase.google.com/  
+
+[ Selecione o projeto ] 
+
+
+Clique aqui:
+
+![Scheme](readme_imgs/config.php)   
+
+Seu Token vai estar aqui...
+![Scheme](readme_imgs/get_token.png)     
