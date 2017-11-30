@@ -67,7 +67,7 @@ function getConnection() {
 			
 			$cli = 'imasters';
 			
-			$db = new PDO("mysql:host=localhost;dbname=" . $cli , 'root', '');  
+			$db = new PDO("mysql:host=localhost;dbname=" . $cli , 'root', 'you5094');  
 			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);		
 			$db->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER);
 			//$db->exec("set names utf8"); //Garante UTF em versão < 5.3
@@ -78,8 +78,10 @@ function getConnection() {
 			return $db;
 		}
 	} catch (PDOException $e) {
-	    print "Error!: " . $e->getMessage() . "<br/>";
-	    die();
+
+		http_response_code(500);
+		print "Error!: " . $e->getMessage();
+		die();
 	}
 }
 

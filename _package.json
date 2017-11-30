@@ -1,0 +1,28 @@
+{
+  "name": "cordova_app",
+  "version": "1.0.0",
+  "description": "Cordova App With PHP Token",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-animate": "^1.5.6",
+    "angular-route": "^1.5.6",
+    "jquery": "1.11.*",
+    "jquery.maskedinput": "^1.4.1",
+    "materialize-css": "^0.99.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrieldarezzo/cordova_app.git"
+  },
+  "author": "Gabriel Darezzo <darezzo.gabriel@gmail.com> (https://inwork.com.br/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrieldarezzo/cordova_app/issues"
+  },
+  "homepage": "https://github.com/gabrieldarezzo/cordova_app#readme"
+}

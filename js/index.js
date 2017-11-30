@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 	
+	
 	document.addEventListener("deviceready", onDeviceReady, false);
 
 });

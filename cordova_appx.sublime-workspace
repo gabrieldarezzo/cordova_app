@@ -1,0 +1,415 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"wid",
+				"width"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"mar",
+				"margin-left"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "diff",
+		"selected_items":
+		[
+			[
+				"diff",
+				"Git: Diff Current File"
+			],
+			[
+				"GIT STATU",
+				"Git: Status"
+			],
+			[
+				"GIT STAT",
+				"Git: Status"
+			],
+			[
+				"log",
+				"Git: Log Current File"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"git diff",
+				"Git: Diff All Files"
+			],
+			[
+				"git chec",
+				"Git: Checkout Current File"
+			],
+			[
+				"git diff cu",
+				"Git: Diff Tool Current File"
+			]
+		],
+		"width": 524.0
+	},
+	"console":
+	{
+		"height": 130.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/xampp/htdocs/cordova_appx",
+		"/C/xampp/htdocs/cordova_appx/_dump",
+		"/C/xampp/htdocs/cordova_appx/api",
+		"/C/xampp/htdocs/cordova_appx/js"
+	],
+	"file_history":
+	[
+		"/C/xampp/htdocs/cordova_appx/README.md",
+		"/C/xampp/htdocs/cordova_appx/index.html",
+		"/C/xampp/htdocs/cordova_appx/js/index.js",
+		"/C/xampp/htdocs/cordova_appx/js/app.js",
+		"/C/xampp/htdocs/cordova_appx/api/index.php",
+		"/C/xampp/htdocs/cordova_appx/api/config.php",
+		"/C/xampp/htdocs/cordova_app/node_modules/materialize-css/css/materialize.min.css",
+		"/C/xampp/htdocs/cordova_app/index.html",
+		"/C/xampp/htdocs/cordova_app/node_modules/materialize-css/js/materialize.js",
+		"/C/xampp/htdocs/cordova_app/api/index.php",
+		"/C/xampp/htdocs/voxpmo/resources/views/local/detail.blade.php",
+		"/C/xampp/htdocs/voxpmo/routes/web.php",
+		"/C/xampp/htdocs/voxpmo/app/Http/Controllers/LocalController.php",
+		"/C/xampp/htdocs/voxpmo/app/Http/Requests/LocalRequest.php",
+		"/C/xampp/htdocs/voxpmo/_dump/dll.sql",
+		"/C/xampp/htdocs/voxpmo/resources/views/local/locais.blade.php",
+		"/C/xampp/htdocs/voxpmo/resources/views/local/editar.blade.php",
+		"/C/xampp/htdocs/voxpmo/_dump/dll_22.11.sql",
+		"/C/xampp/htdocs/voxpmo/_dump/todo.txt",
+		"/C/xampp/htdocs/voxpmo/resources/views/local/meuMapa.blade.php",
+		"/C/xampp/htdocs/voxpmo/public/js/map.js",
+		"/C/xampp/htdocs/voxpmo/public/js/linkedin.js",
+		"/C/xampp/htdocs/voxpmo/app/Local.php",
+		"/C/xampp/htdocs/voxpmo/resources/views/layout.blade.php",
+		"/C/xampp/htdocs/voxpmo/public/js/helper.js",
+		"/C/xampp/htdocs/voxpmo/app/Http/Controllers/PinController.php",
+		"/C/xampp/htdocs/voxpmo/resources/views/pin/editar.blade.php",
+		"/C/xampp/htdocs/voxpmo/resources/views/blank/blank.blade.php",
+		"/C/xampp/htdocs/voxpmo/resources/views/campaigns/campaigns.blade.php",
+		"/C/xampp/htdocs/voxpmo/resources/views/usuario/login.blade.php",
+		"/C/xampp/htdocs/voxpmo/resources/views/usuario/usuarios.blade.php",
+		"/C/xampp/htdocs/voxpmo/readme.md",
+		"/C/xampp/htdocs/voxpmo/public/css/main.css",
+		"/C/xampp/htdocs/voxpmo/resources/views/local/table.blade.php",
+		"/C/xampp/htdocs/voxpmo/resources/views/usuario/novo.blade.php",
+		"/C/xampp/htdocs/voxpmo/resources/views/pin/pins.blade.php",
+		"/C/xampp/htdocs/voxpmo/app/Http/Controllers/LoginController.php",
+		"/C/xampp/htdocs/voxpmo/app/Http/Controllers/UsersLocationController.php",
+		"/C/xampp/htdocs/voxpmo/public/css/info-window-map.css",
+		"/C/xampp/htdocs/voxpmo/public/css/map.css",
+		"/C/xampp/htdocs/voxpmo/public/css/legend-map.css",
+		"/C/xampp/htdocs/voxpmo/.env.example",
+		"/C/xampp/htdocs/voxpmo/artisan",
+		"/C/xampp/htdocs/voxpmo/composer.lock",
+		"/C/xampp/htdocs/voxpmo/_dump/ex/bower_components/angular-cookies/angular-cookies.js",
+		"/C/xampp/htdocs/voxpmo/resources/views/local/cep_js.blade.php",
+		"/C/xampp/htdocs/voxpmo/public/css/show-users-map.css",
+		"/C/xampp/htdocs/pretty-map/index.html"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"registrationId",
+			"Test",
+			"register_device",
+			"main-system"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 52.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "cordova_appx.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"index.js",
+				"js\\index.js"
+			],
+			[
+				"deta",
+				"resources\\views\\local\\detail.blade.php"
+			],
+			[
+				"localcontro",
+				"app\\Http\\Controllers\\LocalController.php"
+			],
+			[
+				"web",
+				"routes\\web.php"
+			],
+			[
+				"detail",
+				"resources\\views\\local\\detail.blade.php"
+			],
+			[
+				"locais",
+				"resources\\views\\local\\locais.blade.php"
+			],
+			[
+				"localcon",
+				"app\\Http\\Controllers\\LocalController.php"
+			],
+			[
+				"editar",
+				"resources\\views\\local\\editar.blade.php"
+			],
+			[
+				"todo",
+				"_dump\\todo.txt"
+			],
+			[
+				"localco",
+				"app\\Http\\Controllers\\LocalController.php"
+			],
+			[
+				"meuma",
+				"resources\\views\\local\\meuMapa.blade.php"
+			],
+			[
+				"lay",
+				"resources\\views\\layout.blade.php"
+			],
+			[
+				"map.j",
+				"public\\js\\map.js"
+			],
+			[
+				"blank",
+				"resources\\views\\blank\\blank.blade.php"
+			],
+			[
+				"pinco",
+				"app\\Http\\Controllers\\PinController.php"
+			],
+			[
+				"localc",
+				"app\\Http\\Controllers\\LocalController.php"
+			],
+			[
+				"layou",
+				"resources\\views\\layout.blade.php"
+			],
+			[
+				"meumap",
+				"resources\\views\\local\\meuMapa.blade.php"
+			],
+			[
+				"usuarios",
+				"resources\\views\\usuario\\usuarios.blade.php"
+			],
+			[
+				"read",
+				"readme.md"
+			],
+			[
+				"layout",
+				"resources\\views\\layout.blade.php"
+			],
+			[
+				"info",
+				"public\\css\\info-window-map.css"
+			],
+			[
+				"map.",
+				"public\\js\\map.js"
+			],
+			[
+				"localcoj",
+				"_dump\\ex\\bower_components\\angular-cookies\\angular-cookies.js"
+			],
+			[
+				"pincon",
+				"app\\Http\\Controllers\\PinController.php"
+			],
+			[
+				"localcont",
+				"app\\Http\\Controllers\\LocalController.php"
+			],
+			[
+				"map.js",
+				"public\\js\\map.js"
+			],
+			[
+				"legend",
+				"public\\css\\legend-map.css"
+			],
+			[
+				"infow",
+				"public\\css\\info-window-map.css"
+			],
+			[
+				"cep_js",
+				"resources\\views\\local\\cep_js.blade.php"
+			],
+			[
+				"linked",
+				"public\\js\\linkedin.js"
+			],
+			[
+				"linek",
+				"public\\js\\linkedin.js"
+			],
+			[
+				"main",
+				"public\\css\\main.css"
+			],
+			[
+				"layo",
+				"resources\\views\\layout.blade.php"
+			],
+			[
+				"meum",
+				"resources\\views\\local\\meuMapa.blade.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 294.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
