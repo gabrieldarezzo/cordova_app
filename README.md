@@ -1,6 +1,8 @@
-# Cordova PushNotification with phpBackend  
+# Cordova PushNotification with php  
 
-Minha dica seria rodar o [Android Studio](https://developer.android.com/studio), compilar um 'Olá Mundo' no celular.  
+## Android e Cordova  
+
+Minha dica seria rodar o [Android Studio](https://developer.android.com/studio), compilar um 'Olá Mundo' no seu celular.  
 Só após isso rodar o cordova:  
 
 ```shell
@@ -12,13 +14,25 @@ cordova platform add android
 
 
 Vamos rodar para verificar se está tudo belezinha:  
-```
+
+Ps: É necessario um cabo USB + celular no modo dev && depuração ativa:  
+Mais informações aqui:  
+https://developer.android.com/studio/debug/dev-options.html?hl=pt-br#enable
+
+Vamos instalar o app no celular via USB agora no seu `device`:
+```shell
 cordova run android --device  
 ```  
 Ps: `--device` é o Android real xD (Emulador is sux in pc-da-xuxa)   
+Você deveria ver algo assim no seu celular:
+![Hello World in Cordova](readme_imgs/first_screen.jpg)    
+
+
+
+
 
 Add PushNotification:  
-```
+```shell
 cordova plugin add phonegap-plugin-push
 ```
 
@@ -106,14 +120,15 @@ onDeviceReady: function() {
 
 
 
-Vamos rodar e verificar se foi gerado um `registrationId` no cordova:  
+Vamos rodar o cordova no android novamente e verificar se foi gerado um `registrationId`:  
 ```shell
 cordova run android --device  
 ```    
 
-Para abrir o remote é necessario fazer esses passos (e já estar com ele em modo dev | Usb de depuração):
+Para abrir o remote é necessário fazer esses passos (com o celular em Usb de depuração):
 ![Inspect Remote Device](readme_imgs/inspect_remote_device.png)  
-Mais informações aqui: 
+Mais informações sobre o modo de depuração|modo desenvolvedor no Android:  
+https://developers.google.com/web/tools/chrome-devtools/remote-debugging/?hl=pt-br  
 
 
 
@@ -122,28 +137,32 @@ Mais informações aqui:
 No meu caso o `registrationId` foi:
 ```
 ev_5OhHnLsM:APA91bHHm4hHql590QhOhq2dNAMu69fZKdmfD4dWacM36mollYNjj1omXnRT9QlXV0yoVhVVObrvjI95s9_bAk8R9HeL3PfNtw_skJ_3IiIWspM6KxeeTTYJyz3sQN6qa9pqGHFx0TK0
-```
-Podemos até fechar o aplicativo agora, e focar no php.
+```  
+--- 
+
+## BackEnd Php  
+
+Podemos fechar (literalmenete) o aplicativo agora, e focar no php.
 
 
-deixei um sample no: `cordova_app/api/index.php`
+Deixei um sample no: `cordova_app/api/index.php`
 
-Necessario apenas alterar:
+Necessário apenas alterar:
 ```php
-define('KEY_SERVER', '');
+define('KEY_SERVER', 'Chave_Do_Servidor');
 
-// e 
 $registerDevice = 'ev_5OhHnLsM:APA91bHHm4hHql590QhOhq2dNAMu69fZKdmfD4dWacM36mollYNjj1omXnRT9QlXV0yoVhVVObrvjI95s9_bAk8R9HeL3PfNtw_skJ_3IiIWspM6KxeeTTYJyz3sQN6qa9pqGHFx0TK0';
 ```
 
-Chame a url, e veja a magica acontecer:
+Chame a url:  
+`http://localhost/cordova_app/api/` 
+E veja a mágica acontecer:
 ![localStorage registrationId](readme_imgs/push_on_device.jpg)  
 
 
 
 
-
-Agradeço muito ao @macdonst por esse tutorial que me ajudou:
+Agradeço muito ao [@macdonst](https://github.com/macdonst) por esse tutorial:  
 http://macdonst.github.io/push-workshop/
 
 
