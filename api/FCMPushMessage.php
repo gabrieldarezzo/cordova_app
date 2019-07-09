@@ -1,18 +1,11 @@
 <?php
-/*
-	PS: On April 10, 2018, Google deprecated GCM. The GCM server and client APIs were removed on May 29, 2019.
-	Migrate GCM apps to Firebase Cloud Messaging (FCM), which inherits the reliable and scalable GCM infrastructure, plus many new features.
-	
-	
-	@author Matt Grundy
-	Adapted from the code available at:
-	http://stackoverflow.com/questions/11242743/gcm-with-php-google-cloud-messaging
 
-*/
-class GCMPushMessage {
+class FCMPushMessage {
 
-	// the URL of the GCM API endpoint
-	private $url = 'https://android.googleapis.com/gcm/send';
+	// the URL of the FCM API endpoint	
+	private $url = 'https://fcm.googleapis.com/fcm/send';
+
+	
 	// the server API key - setup on class init
 	private $serverApiKey = "";
 	// array of devices to send to
@@ -46,11 +39,11 @@ class GCMPushMessage {
 	function send($message, $data = false){
 		
 		if(!is_array($this->devices) || count($this->devices) == 0){
-			throw new GCMPushMessageArgumentException("No devices set");
+			throw new FCMPushMessageArgumentException("No devices set");
 		}
 		
 		if(strlen($this->serverApiKey) < 8){
-			throw new GCMPushMessageArgumentException("Server API Key not set");
+			throw new FCMPushMessageArgumentException("Server API Key not set");
 		}
 		
 		$fields = array(
@@ -96,7 +89,7 @@ class GCMPushMessage {
 	
 }
 
-class GCMPushMessageArgumentException extends Exception {
+class FCMPushMessageArgumentException extends Exception {
     public function __construct($message, $code = 0, Exception $previous = null) {
         parent::__construct($message, $code, $previous);
     }
