@@ -148,14 +148,13 @@ fYB6SWgmQUM:APA91bHHCZYGFCTvQbjYzzGFHgzikh2OSB0HBeSS3TzT1taHQiwcJ-ZLo5THdWsmGDwJ
 
 ## BackEnd Php send FCM
 
-Podemos fechar o aplicativo (literalmenete), e focar no php.
+Podemos fechar o aplicativo (literalmente), e focar no php.
 
 
 Deixei um sample do back-end no: `cordova_app/api/index.php`
 ```php
 <?php
 require_once('FCMPushMessage.php');
-
 
 define('KEY_SERVER', 'AAAA_nIyxT4:APA91bFUB9FdM1gOul3IHkKdQN2BQRnPTgIb3wun1O65jd_7L_M5W4DaCffTEe1_KLwYO2iT6BOHEpK_-ErKeQFbwtIY0_ZDvUcs-lRVY4iipNeRQSGenrOPDi-F7VbOMmTk8m41-n6x');
 $fcmPushMessage = new FCMPushMessage(KEY_SERVER);
@@ -170,16 +169,8 @@ $response = $fcmPushMessage->send('Body Message', [
 ]);
 
 print $response;
-
-
-``` 
-
-Necessário apenas alterar:
-```php
-define('KEY_SERVER', 'Chave_Do_Servidor');
-
-$registerDevice = 'fYB6SWgmQUM:APA91bHHCZYGFCTvQbjYzzGFHgzikh2OSB0HBeSS3TzT1taHQiwcJ-ZLo5THdWsmGDwJACMaPqZmDY5FIxlWp6gMlTKsv2G29e_va07ttxwh_PwslfOLjZQl6Kv5u7V0hKBSLOqqCeN3';
-```
+```  
+Não esqueça de alterar seu `KEY_SERVER` e `$registerDevice`  
 
 Chame a url:  
 `http://localhost/cordova_app/api/` 
