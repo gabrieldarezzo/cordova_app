@@ -69,7 +69,18 @@ Salve o arquivo `google-services.json` na pasta: `nome_do_projeto\platforms\andr
 
 Ps: Recomendo fechar o app, e excluir para evitar confusão.
 
-Adicione seu `senderId` `PushNotification.init()` no arquivo `nome_do_projeto/www/js/index.js`:
+Altere seu arquivo: `nome_do_projeto/www/js/index.js`:
+
+Antes:  
+```js
+...
+onDeviceReady: function() {
+	this.receivedEvent('deviceready');
+},
+...
+```   
+
+Adicione seu `senderId` `PushNotification.init()` no  `nome_do_projeto/www/js/index.js`:  
 ```js
 ...
 onDeviceReady: function() {
